@@ -4,29 +4,34 @@ const Schema = mongoose.Schema;
 
 const workoutSchema = new Schema({
   name: {
-    type: String,
-    trim: true,
-    required: "Enter a name for your workout"
+    type: String
+  },
+  date: {
+    type: Date,
+    default: Date.now
   },
   type: {
-    type: Number,
-    required: "Enter an amount"
+    type: String
   },
   weight: {
     type: Number,
-    required: "How many pounds"
+    default: 0
   },
   sets: {
     type: Number,
-    default: "How many sets did you do"
+    default: 0
   },
   reps: {
     type: Number,
-    default: "How many reps did you do"
+    default: 0
   },
   duration: {
     type: Number,
-    default: "How many minutes long was your workout"
+    default: 0
+  },
+  distance: {
+    type: Number,
+    default: 0
   }
 });
 
