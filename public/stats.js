@@ -22,7 +22,7 @@ function generatePalette() {
 }
 
 function populateChart(data) {
-  let durations = data.map(({ totalDuration }) => totalDuration);
+  let durations = workoutDuration(data);
   let pounds = calculateTotalWeight(data);
   let workouts = workoutNames(data);
   const colors = generatePalette();
@@ -190,6 +190,16 @@ function calculateTotalWeight(data) {
 
   return totals;
 }
+
+function workoutDuration(data) {
+  let durations = [];
+
+  data.forEach((workout) => {
+    workout.exercises.forEach((exercise) => {
+      durations.push(exercise.duration);
+    });
+    return durations;
+  });
 
 function workoutNames(data) {
   let workouts = [];
